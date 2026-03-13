@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 <p>Preparando download...</p>
 
 <script>
@@ -22,9 +21,21 @@ const arquivos = {
 
 if (arquivos[ano]) {
 
-  setTimeout(function(){
-      window.location.href = arquivos[ano];
-  }, 500);
+fetch(arquivos[ano])
+  .then(response => response.blob())
+  .then(blob => {
+
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = "dados_"+ano+".csv";
+
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+  });
 
 } else {
   document.body.innerHTML = "Arquivo não encontrado.";
