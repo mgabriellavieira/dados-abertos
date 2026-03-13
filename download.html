@@ -15,9 +15,15 @@ const arquivos = {
 };
 
 if (arquivos[ano]) {
-  window.location.href = arquivos[ano];
+
+  const link = document.createElement("a");
+  link.href = arquivos[ano];
+  link.download = "";
+  document.body.appendChild(link);
+  link.click();
+
 } else {
-  document.write("Ano não disponível.");
+  document.write("Arquivo não encontrado.");
 }
 
 </script>
