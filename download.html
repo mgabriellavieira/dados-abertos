@@ -15,13 +15,7 @@ const arquivos = {
 };
 
 if (arquivos[ano]) {
-
-  const link = document.createElement("a");
-  link.href = arquivos[ano];
-  link.download = "";
-  document.body.appendChild(link);
-  link.click();
-
+  window.location.replace(arquivos[ano]);
 } else {
   document.write("Arquivo não encontrado.");
 }
