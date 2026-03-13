@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const ano = params.get("ano");
+
+const arquivos = {
+  "2023": "https://raw.githubusercontent.com/mgabriellavieira/dados-abertos/main/dados/dados_2023.csv",
+  "2024": "https://raw.githubusercontent.com/mgabriellavieira/dados-abertos/main/dados/dados_2024.csv",
+  "2025": "https://raw.githubusercontent.com/mgabriellavieira/dados-abertos/main/dados/dados_2025.csv"
+};
+
+if (arquivos[ano]) {
+  window.location.href = arquivos[ano];
+} else {
+  document.write("Ano não disponível.");
+}
+
+</script>
+
+</head>
+<body>
+</body>
+</html>
